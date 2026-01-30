@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Be My Valentine 💘</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      width: 320px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    h1 {
+      margin-top: 15px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #ccc;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 17px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Cute gif">
+
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes 💘</button>
+      <button id="noBtn">No 🙃</button>
+    </div>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const noMessages = [
+      "Nice try 😏 That option doesn’t exist.",
+      "Still no? Bold choice.",
+      "I admire the persistence… but no.",
+      "At this point you’re just clicking for fun.",
+      "Okay okay, relax 😭 Just press yes."
+    ];
+
+    let noClickCount = 0;
+
+    document.getElementById("yesBtn").onclick = () => {
+      window.location.href = "yes.html";
+    };
+
+    document.getElementById("noBtn").onclick = () => {
+      const message = document.getElementById("message");
+      message.textContent = noMessages[Math.min(noClickCount, noMessages.length - 1)];
+      message.style.color = "#555";
+      noClickCount++;
+    };
+  </script>
+</body>
+</html>
